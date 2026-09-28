@@ -8,7 +8,7 @@ export const resumeData = {
       location: "Linz, Austria",
       github: "https://github.com/adirnberger-htl",
     },
-    about: "I am a Software Engineering student with a strong focus on Artificial Intelligence and Entrepreneurship.",
+    about: "I am currently studying Software Engineering with a strong focus on Artificial Intelligence and Entrepreneurship.",
     experience: [
       {
         id: 1,
@@ -36,7 +36,7 @@ export const resumeData = {
       {
         id: 1,
         school: "HTL Leonding",
-        degree: "Computer Science & Software Engineering",
+        degree: "Computer Science & Software Engineering (SSE)",
         date: "September 2023 - Present",
         description: "School of Software Engineering — Comprehensive IT education with a specialized focus on Artificial Intelligence and Entrepreneurship.",
       },
@@ -68,6 +68,7 @@ export const resumeData = {
       {
         id: 1,
         title: "TermiTune",
+        category: "CLI // AUDIO & MUSIC",
         description: "A terminal-based music player featuring a sleek command-line interface for managing and playing your favorite tunes.",
         techStack: ["Java", "CLI", "Maven"],
         link: "https://github.com/2526-htlleonding-projects/termi-tunes",
@@ -76,6 +77,7 @@ export const resumeData = {
       {
         id: 2,
         title: "Major Mountaineer",
+        category: "AI // MOUNTAINEERING & LOGIC",
         description: "A logic-based mountaineering application written in Prolog, combining my passion for hiking with complex rule-based AI algorithms.",
         techStack: ["Prolog", "Logic Programming"],
         link: "https://github.com/2526-htlleonding-projects/major-mountaineer-prolog",
@@ -84,6 +86,7 @@ export const resumeData = {
       {
         id: 3,
         title: "The Translator",
+        category: "UTILITY // TRANSLATION",
         description: "A language translation tool that leverages modern APIs to deliver quick and highly accurate translations.",
         techStack: ["C#", ".NET", "API"],
         link: "https://github.com/2526-htlleonding-projects/TheTranslator",
@@ -100,28 +103,28 @@ export const resumeData = {
       location: "Linz, Österreich",
       github: "https://github.com/adirnberger-htl",
     },
-    about: "Ich absolviere derzeit eine Ausbildung im Bereich Software Engineering mit starkem Fokus auf Künstliche Intelligenz und Entrepreneurship. Meine Leidenschaft ist es, durchdachte Anwendungen zu entwickeln und mir kontinuierlich neue Technologien anzueignen.",
+    about: "Ich absolviere derzeit eine Ausbildung im Bereich Software Engineering mit starkem Fokus auf Künstliche Intelligenz und Entrepreneurship.",
     experience: [
       {
         id: 1,
-        role: "Geringfügige Beschäftigung",
+        role: "Verkauf & Bergsportberatung",
         company: "bergwerk Mountainstore, Linz",
         date: "Juni 2026 - Heute",
         description: "Verkauf und professionelle Kundenberatung im Bereich Bergsportausrüstung.",
       },
       {
         id: 2,
+        role: "Ferialarbeit Produktion",
+        company: "SALESIANER MIETTEX, Enns",
+        date: "Juli 2025 - August 2025",
+        description: "Mitarbeit in der Produktionsabteilung und Bedienung diverser Maschinen.",
+      },
+      {
+        id: 3,
         role: "IT Praktikum",
         company: "LAWOG Linz, Linz",
         date: "Juli 2024 - August 2024",
         description: "Computerwartung, technischer Mitarbeiter-Support sowie Instandhaltung der Netzwerkinfrastruktur (Accesspoints, Server, Switches).",
-      },
-      {
-        id: 3,
-        role: "Ferialarbeit",
-        company: "SALESIANER MIETTEX, Enns",
-        date: "Juli 2025 - August 2025",
-        description: "Mitarbeit in der Produktionsabteilung und Bedienung diverser Maschinen.",
       },
     ],
     education: [
@@ -129,7 +132,7 @@ export const resumeData = {
         id: 1,
         school: "HTL Leonding",
         degree: "Informatik SSE",
-        date: "September 2023 - Aktuell",
+        date: "September 2023 - Heute",
         description: "School of Software Engineering – Umfassende Informatikausbildung mit Schwerpunkt auf Künstlicher Intelligenz und Entrepreneurship.",
       },
       {
@@ -142,7 +145,7 @@ export const resumeData = {
       {
         id: 3,
         school: "Volksschule Hargelsberg",
-        degree: "Grundschule",
+        degree: "Primarstufe (Volksschule)",
         date: "September 2015 - Juli 2019",
         description: "",
       },
@@ -155,11 +158,12 @@ export const resumeData = {
         "Cambridge Business English",
       ],
     },
-    hobbies: ["Fitnessstudio", "Wandern / Bergsteigen", "Laufen", "Radfahren"],
+    hobbies: ["Fitnessstudio", "Wandern & Bergsteigen", "Laufen", "Radfahren"],
     projects: [
       {
         id: 1,
         title: "TermiTune",
+        category: "CLI // AUDIO & MUSIK",
         description: "Eine terminalbasierte Musikanwendung mit einer eleganten Kommandozeilenoberfläche zur Verwaltung und Wiedergabe von Musik.",
         techStack: ["Java", "CLI", "Maven"],
         link: "https://github.com/2526-htlleonding-projects/termi-tunes",
@@ -168,7 +172,8 @@ export const resumeData = {
       {
         id: 2,
         title: "Major Mountaineer",
-        description: "Eine logikbasierte Bergsteiger-Anwendung in Prolog. Sie verbindet meine Leidenschaft für das Wandern mit komplexen, regelbasierten Algorithmen.",
+        category: "KI // BERGSPORT & LOGIK",
+        description: "Eine logikbasierte Bergsteiger-Anwendung in Prolog. Sie verbindet meine Leidenschaft für das Wandern mit komplexen, regelbasierten KI-Algorithmen.",
         techStack: ["Prolog", "Logic Programming"],
         link: "https://github.com/2526-htlleonding-projects/major-mountaineer-prolog",
         repo: "https://github.com/2526-htlleonding-projects/major-mountaineer-prolog",
@@ -176,6 +181,7 @@ export const resumeData = {
       {
         id: 3,
         title: "The Translator",
+        category: "TOOL // ÜBERSETZUNG",
         description: "Ein Softwareprojekt zur Sprachübersetzung, das moderne APIs nutzt, um schnelle und präzise Übersetzungen zu liefern.",
         techStack: ["C#", ".NET", "API"],
         link: "https://github.com/2526-htlleonding-projects/TheTranslator",

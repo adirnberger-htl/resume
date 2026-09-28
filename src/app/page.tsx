@@ -12,10 +12,6 @@ export default function Home() {
   const [scrollProgress, setScrollProgress] = useState(0);
   const [isScrolling, setIsScrolling] = useState(false);
 
-  // Simple quick entrance loader state
-  const [introVisible, setIntroVisible] = useState(true);
-  const [introUnmounted, setIntroUnmounted] = useState(false);
-
   useEffect(() => {
     // Force scroll to top on initial load & disable automatic restoration
     if (typeof window !== "undefined") {
@@ -30,15 +26,6 @@ export default function Home() {
         window.scrollTo(0, 0);
       });
     }
-
-    // Quick intro: begins dissolve at 280ms, fully unmounts at 580ms
-    const fadeTimer = setTimeout(() => {
-      setIntroVisible(false);
-    }, 280);
-
-    const unmountTimer = setTimeout(() => {
-      setIntroUnmounted(true);
-    }, 580);
 
     let scrollTimeout: NodeJS.Timeout;
     let ticking = false;
@@ -70,8 +57,6 @@ export default function Home() {
     window.addEventListener("scroll", handleScroll, { passive: true });
 
     return () => {
-      clearTimeout(fadeTimer);
-      clearTimeout(unmountTimer);
       clearTimeout(scrollTimeout);
       window.removeEventListener("scroll", handleScroll);
     };
@@ -79,7 +64,6 @@ export default function Home() {
 
   const i18n = {
     en: {
-      badge: "Software Engineer & Outdoor Sports Enthusiast",
       navAbout: "About",
       navExperience: "Experience",
       navEducation: "Education",
@@ -90,7 +74,7 @@ export default function Home() {
       trailProfile: "WAYPOINT 01 // 1,420m • BASE CAMP",
       aboutTitle: "About Me",
       contactCardTitle: "Contact & Location",
-      hobbiesTitle: "Sports & Activities",
+      hobbiesTitle: "Sports & Hobbies",
       trailExp: "WAYPOINT 02 // 1,750m • RIDGEWAY TRAIL",
       experienceTitle: "Experience",
       currentBadge: "Current",
@@ -104,6 +88,11 @@ export default function Home() {
       projectsTitle: "Featured Projects",
       github: "GitHub Repository",
       liveDemo: "Live Demo",
+      metricInstitution: "Institution",
+      metricLocation: "Location",
+      metricRole: "Current Role",
+      subLanguages: "Languages",
+      subClubs: "Clubs & Activities",
       statsSchool: "HTL Leonding",
       statsSchoolSub: "Informatik SSE",
       statsBase: "Linz",
@@ -112,7 +101,6 @@ export default function Home() {
       statsWorkSub: "Mountain Sports Retail",
     },
     de: {
-      badge: "Software Engineer & Bergsportler",
       navAbout: "Über mich",
       navExperience: "Berufserfahrung",
       navEducation: "Ausbildung",
@@ -123,7 +111,7 @@ export default function Home() {
       trailProfile: "WEGWEISER 01 // 1.420m • TALSTATION",
       aboutTitle: "Über mich",
       contactCardTitle: "Kontakt & Standort",
-      hobbiesTitle: "Sport & Aktivitäten",
+      hobbiesTitle: "Sport & Hobbies",
       trailExp: "WEGWEISER 02 // 1.750m • GRATWEG",
       experienceTitle: "Berufserfahrung",
       currentBadge: "Aktuell",
@@ -137,6 +125,11 @@ export default function Home() {
       projectsTitle: "Ausgewählte Projekte",
       github: "GitHub Repository",
       liveDemo: "Live Demo",
+      metricInstitution: "Institution",
+      metricLocation: "Standort",
+      metricRole: "Aktuelle Rolle",
+      subLanguages: "Sprachen",
+      subClubs: "Schulclubs & Engagement",
       statsSchool: "HTL Leonding",
       statsSchoolSub: "Informatik SSE",
       statsBase: "Linz",
@@ -150,35 +143,6 @@ export default function Home() {
 
   return (
     <main className="min-h-screen bg-[#fbfbfa] text-stone-900 font-sans selection:bg-amber-100 selection:text-amber-900 relative">
-      {/* Sleek Quick Alpine Entrance Loader */}
-      {!introUnmounted && (
-        <div
-          className={`fixed inset-0 z-[100] bg-stone-950 flex flex-col items-center justify-center pointer-events-none transition-opacity duration-300 ease-out ${
-            introVisible ? "opacity-100" : "opacity-0"
-          }`}
-        >
-          {/* Top route tracer line */}
-          <div className="absolute top-0 left-0 right-0 h-[2px] bg-stone-800">
-            <div className="h-full bg-gradient-to-r from-emerald-500 via-amber-400 to-amber-600 w-full animate-pulse" />
-          </div>
-
-          <div className="flex flex-col items-center gap-3">
-            <div className="w-10 h-10 rounded bg-stone-900 border border-amber-500/40 flex items-center justify-center font-mono text-sm font-bold text-amber-400 shadow-lg">
-              AD
-            </div>
-            <div className="flex items-center gap-2 font-mono text-xs text-stone-400">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping" />
-              <span className="text-stone-200 tracking-wider">GROSSER PRIEL</span>
-              <span className="text-stone-600">&bull;</span>
-              <span className="text-amber-400">2,515m</span>
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* Page Content Wrapper (Stationary at y=0, no downward jump) */}
-      <div className="relative">
-
       {/* Professional Sticky Header */}
       <header className="sticky top-0 z-50 backdrop-blur-md bg-stone-900/95 border-b border-stone-800 text-stone-200">
         <div className="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
@@ -353,11 +317,6 @@ export default function Home() {
 
         <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-10 relative z-10">
           <div className="flex-1 text-center md:text-left">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded bg-stone-800/90 border border-stone-700 text-stone-300 text-xs font-mono tracking-wide mb-6">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
-              <span>{t.badge}</span>
-            </div>
-
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-white mb-4">
               {data.personal.name}
             </h1>
@@ -425,7 +384,7 @@ export default function Home() {
         <div className="max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-4 text-center sm:text-left">
           <div className="p-3 rounded bg-stone-800/40 border border-stone-800">
             <div className="text-[11px] font-mono uppercase tracking-wider text-amber-500">
-              Institution
+              {t.metricInstitution}
             </div>
             <div className="font-semibold text-white text-sm mt-0.5">
               {t.statsSchool}
@@ -437,7 +396,7 @@ export default function Home() {
 
           <div className="p-3 rounded bg-stone-800/40 border border-stone-800">
             <div className="text-[11px] font-mono uppercase tracking-wider text-amber-500">
-              Location
+              {t.metricLocation}
             </div>
             <div className="font-semibold text-white text-sm mt-0.5">
               {t.statsBase}
@@ -449,7 +408,7 @@ export default function Home() {
 
           <div className="p-3 rounded bg-stone-800/40 border border-stone-800">
             <div className="text-[11px] font-mono uppercase tracking-wider text-amber-500">
-              Current Role
+              {t.metricRole}
             </div>
             <div className="font-semibold text-white text-sm mt-0.5 truncate">
               {t.statsWork}
@@ -691,7 +650,7 @@ export default function Home() {
               <div className="space-y-4 text-sm text-stone-700">
                 <div>
                   <div className="text-xs font-mono text-stone-400 uppercase tracking-wider mb-2">
-                    Languages
+                    {t.subLanguages}
                   </div>
                   <div className="flex flex-wrap gap-2">
                     {data.skills.languages.map((langItem, idx) => (
@@ -707,7 +666,7 @@ export default function Home() {
 
                 <div>
                   <div className="text-xs font-mono text-stone-400 uppercase tracking-wider mb-2">
-                    Clubs & Activities
+                    {t.subClubs}
                   </div>
                   <ul className="space-y-2">
                     {data.skills.clubs.map((club, idx) => (
@@ -745,11 +704,7 @@ export default function Home() {
               >
                 <div>
                   <div className="text-[10px] font-mono uppercase tracking-widest text-amber-600 mb-2 font-semibold">
-                    {project.title === "Major Mountaineer"
-                      ? "AI // MOUNTAINEERING & LOGIC"
-                      : project.title === "TermiTune"
-                      ? "CLI // AUDIO & MUSIC"
-                      : "UTILITY // TRANSLATION"}
+                    {project.category}
                   </div>
 
                   <h3 className="text-lg font-bold text-stone-900 mb-2">
@@ -809,7 +764,6 @@ export default function Home() {
           </p>
         </div>
       </footer>
-      </div>
     </main>
   );
 }
